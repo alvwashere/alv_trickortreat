@@ -1,3 +1,5 @@
+AlreadyTOTd = {}
+
 for k, v in pairs(Config.Locations) do
   local point = lib.points.new({
       coords = vec3(v.x, v.y, v.z),
@@ -13,12 +15,17 @@ end
 RegisterCommand('tot_interact', function()
   for k, v in pairs(Config.Locations) do
       if #(GetEntityCoords(cache.ped) - vec3(v.x, v.y, v.z)) < 3.0 then
-        local tot = TrickOrTreat()
-
-        if tot == 'treat' then
-
-        elseif tot == 'trick' then
-
+        if not AlreadyTOTd[k] then
+          AlreadyTOTd[k] = true
+          local tot = TrickOrTreat()
+  
+          if tot == 'treat' then
+            lib.callback.await('alv_trickortreat:treat', false)
+          elseif tot == 'trick' then
+            lib.callback.await('alv_trickortreat:trick', false)
+          end
+        else
+          Config.Notify(locale('already_totd'))
         end
       end
   end
