@@ -1,1 +1,4 @@
-l
+{
+  "received": "Treat! You have received x%s %s",
+  "already_totd": "You have already Trick or Treated this house."
+}
