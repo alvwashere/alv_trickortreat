@@ -25,4 +25,17 @@ Config.Locations = {
   vec4(0.0, 0.0, 0.0, 0.0),
 }
 
+Config.NotificationType = 'built-in' --[[ Options: 'built-in', 'framework', 'ox_lib', 'custom' ]]--
+function Config.Notify(message)
+  if Config.NotificationType == 'built-in' then
+
+  elseif Config.NotificationType == 'framework' then
+
+  elseif Config.NotificationType == 'ox_lib' then
+    
+  elseif Config.NotificationType == 'custom' then
+
+  end
+end
+
 Config.Debug = true
