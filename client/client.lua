@@ -20,9 +20,9 @@ RegisterCommand('tot_interact', function()
           local tot = TrickOrTreat()
   
           if tot == 'treat' then
-            lib.callback.await('alv_trickortreat:treat', false)
+            local result = lib.callback.await('alv_trickortreat:treat', false)
           elseif tot == 'trick' then
-            lib.callback.await('alv_trickortreat:trick', false)
+            local result = lib.callback.await('alv_trickortreat:trick', false)
           end
         else
           Config.Notify(locale('already_totd'))
